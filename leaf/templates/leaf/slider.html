@@ -1,0 +1,10 @@
+{% extends 'leaf/base.html' %}
+
+{% block content %}
+  <h1>Stress Test</h1>
+  <form action="{% url 'leaf:slider' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

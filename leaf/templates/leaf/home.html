@@ -1,0 +1,10 @@
+{% extends 'leaf/base.html' %}
+
+{% block content %}
+  <h1>Welcome to Sprout</h1>
+  <form action="{% url 'leaf:slider_submit' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}
