@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <header>
-    <h1>Sprout</h1>
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" >Sprout!</h1>
     <nav>
       <ul>
         <li><a href="{% url 'leaf:home' %}">Home</a></li>
         <li><a href="/leaf/slider/">Slider</a></li>
         <li><a href="/leaf/low_stress/">Low Stress</a></li>
-        <li><a href="/leaf/high_stress/">High Stress</a></li>        
+        <li><a href="/leaf/high_stress/">High Stress</a></li>  
+        <body style="background-color:rgb(148, 239, 120);">      
       </ul>
     </nav>
-  </header>
   <main>
     {% block content %}
     {% endblock %}
