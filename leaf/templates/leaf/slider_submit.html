@@ -1,9 +1,0 @@
-{% extends 'leaf/base.html' %}
-
-{% block content %}
-  <form action="{% url 'leaf:slider_submit' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-  </form>
-{% endblock %}
