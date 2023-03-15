@@ -1,82 +1,104 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style>
-
-body {background: linear-gradient(to right, rgb(155, 239, 160), rgba(0, 181, 45, 0.701));}
-body {font-family: 'Century Gothic', monospace;}
-h1   {color: rgb(0, 0, 0);}
-h1 {font-family: 'Century Gothic', monospace;}
-p    {color: rgb(0, 0, 0);}
-p {font-family: 'Century Gothic', monospace;}
-form    {color: rgb(0, 0, 0);}
-form {
-    position: absolute;
-top: 19%;
-width: 150px;
-height: 20px;
-padding: 20px;
-padding-left: 40px;
-background: rgba(0, 181, 45, 0.701);
-border-radius: 20px; 
-display: flex;
-align-items: center;
-box-shadow: 0px 15px 40px #7E6D5766;
-
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: azure;
-  width: 170px;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: white;
-}
-</style>
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(155, 239, 160), rgba(0, 181, 45, 0.701));
+        }
+        
+        body {
+            font-family: 'Century Gothic', monospace;
+        }
+        
+        h1 {
+            color: rgb(0, 0, 0);
+        }
+        
+        h1 {
+            font-family: 'Century Gothic', monospace;
+        }
+        
+        p {
+            color: rgb(0, 0, 0);
+        }
+        
+        p {
+            font-family: 'Century Gothic', monospace;
+        }
+        
+        form {
+            color: rgb(0, 0, 0);
+        }
+        
+        form {
+            position: absolute;
+            top: 19%;
+            width: 150px;
+            height: 20px;
+            padding: 20px;
+            padding-left: 40px;
+            background: rgba(0, 181, 45, 0.701);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0px 15px 40px #7E6D5766;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: azure;
+            width: 270px;
+        }
+        
+        li {
+            float: left;
+        }
+        
+        li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li a:hover {
+            background-color: white;
+        }
+    </style>
 
 </head>
+
 <body>
 
-<ul>
-    <li><a class="active" href="/">Home</a></li>
-    <li><a href="about">About</a></li>
-</ul>
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="purpose">Purpose</a></li>
+    </ul>
 
 
-<form method="POST" target="_blank" action="" id="setPageForm" name="setPageForm">
-    <input type="range" id="set_page" min="1" max="10" value="5" step="1" name="set_page_value"
-        oninput="output.innerHTML=this.value" onchange="setPage(); this.form.submit();">
+    <form method="POST" target="_blank" action="" id="setPageForm" name="setPageForm">
+        <input type="range" id="set_page" min="1" max="10" value="5" step="1" name="set_page_value" oninput="output.innerHTML=this.value" onchange="setPage(); this.form.submit();">
         <p class="value1" id="output"> 5</p>
 
-</form>
-<script>
-function setPage() {
-    var element = document.getElementById('set_page');
-    var newValue = document.getElementById('set_page').value;
-    document.forms.setPageForm.action = '/slider/' + newValue;
-}
-</script>
+    </form>
+    <script>
+        function setPage() {
+            var element = document.getElementById('set_page');
+            var newValue = document.getElementById('set_page').value;
+            document.forms.setPageForm.action = '/slider/' + newValue;
+        }
+    </script>
 
-<h4>How Stressed Are You?</h4>
+    <h4>How Stressed Are You?</h4>
 
 </body>
+
 </html>
 
 <!--<div class="container" style = "position:relative; left:1200px; top:-145px;">
@@ -85,4 +107,5 @@ function setPage() {
     </a>-->
 
 </body>
+
 </html>
