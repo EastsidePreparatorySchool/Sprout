@@ -1,4 +1,3 @@
-#imports flask
 from flask import Flask
 #Imports templates so we can use html
 from flask import render_template
