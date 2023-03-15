@@ -49,7 +49,11 @@ li a {
 li a:hover {
   background-color: white;
 }
+
+
 </style>
+
+<title>Button Ex</title>
 
 </head>
 <body>
@@ -62,15 +66,22 @@ li a:hover {
 
 <form method="POST" target="_blank" action="" id="setPageForm" name="setPageForm">
     <input type="range" id="set_page" min="1" max="10" value="5" step="1" name="set_page_value"
-        oninput="output.innerHTML=this.value" onchange="setPage(); this.form.submit();">
+        oninput="output.innerHTML=this.value" onchange="setPage();">
         <p class="value1" id="output"> 5</p>
 
 </form>
+
+<button onclick="submitForm()">le buton</button>
+
 <script>
 function setPage() {
     var element = document.getElementById('set_page');
     var newValue = document.getElementById('set_page').value;
     document.forms.setPageForm.action = '/slider/' + newValue;
+}
+
+function submitForm() {
+  document.forms.setPageForm.submit();
 }
 </script>
 
