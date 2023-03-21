@@ -63,6 +63,10 @@ def Slider_9():
 def Slider_10():
     return render_template('slider/slider10.html')
 
+@app.route("/hi", methods=['GET', 'POST'])
+def Slider_10():
+
+
 
 
 
