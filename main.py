@@ -1,12 +1,17 @@
-#imports flask
+#imports flask sync test
 from flask import Flask
 #Imports templates so we can use html
 from flask import render_template
 from flask import request
-from markupsafe import escape
+from flask import Flask, render_template, redirect, url_for, session
+from flask_sqlalchemy import SQLAlchemy
 
+#testing this comment so for push
 app = Flask(__name__)
+app.secret_key = "some_secret_key"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 
+db = SQLAlchemy(app)
 @app.route("/")
 def main():
     return render_template('main.html')
