@@ -1,15 +1,17 @@
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
-    background-color: rgb(249, 237, 6);
+    background-color: rgb(147, 225, 95);
     font-family: 'Century Gothic', monospace;
 }
 
-h1, p {
+h1,
+p {
     color: rgb(0, 0, 0);
     font-family: 'Century Gothic', monospace;
 }
-
 
 .slider {
     color: rgb(0, 0, 0);
@@ -52,7 +54,6 @@ nav li a:hover {
 }
 
 
-
 /*Signin*/
 
 .signin {
@@ -68,7 +69,8 @@ nav li a:hover {
 }
 
 .signin input:focus {
-    outline: none; /* Remove the default outline */
-    box-shadow: 0 0 0 2px #000000; /* Apply a new red box-shadow */
-  }
-  
+    outline: none;
+    /* Remove the default outline */
+    box-shadow: 0 0 0 2px #000000;
+    /* Apply a new red box-shadow */
+}
