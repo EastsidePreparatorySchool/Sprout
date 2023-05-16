@@ -2,75 +2,10 @@
 <html>
 <head>
     <title>Dashboard</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-
-<style>
-    .clickMe {
-        border: 3px #444444 solid;
-        border-radius: 10px;
-        -moz-border-radius: 10px;
-        background: white;
-        color: green;
-        width: 10%;
-        margin: auto;
-    }
-    
-    .clickMe:hover {
-        border: 3px #ffffff dotted;
-        background: black;
-        color: white;
-    }
-</style>
-
 <body>
     <h1>Welcome, {{ user.username }}!</h1>
     <a href="{{ url_for('logout') }}">Logout</a>
-
-
-        <nav>
-            <ul>
-                <li><a class="active" href="/">Home</a></li>
-                <li><a href="/about/">About</a></li>
-            </ul>
-        </nav>
-    
-        <form class="slider" method="POST" target="_blank" action="" id="setPageForm" name="setPageForm">
-            <input type="range" id="set_page" min="1" max="10" value="5" step="1" name="set_page_value" oninput="output.innerHTML=this.value" onchange="setPage();">
-            <p class="value1" id="output"> 5</p>
-        </form>
-    
-        <h4>How Stressed Are You?</h4>
-    
-        <script>
-            function setPage() {
-                var element = document.getElementById('set_page');
-                var newValue = document.getElementById('set_page').value;
-                document.forms.setPageForm.action = '/slider/' + newValue;
-            }
-    
-            function submitForm() {
-                document.forms.setPageForm.submit();
-            }
-        </script>
-    
-        <br>
-        <br>
-        <br>
-    
-        <a onclick="submitForm()">
-    
-            <div class="clickMe">
-                Enter
-            </div>
-    
-        </a>
-    
 </body>
 </html>
-
-
-
