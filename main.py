@@ -7,6 +7,7 @@ from flask import redirect, url_for, session, flash
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+from markupsafe import escape
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Hello'
@@ -29,8 +30,8 @@ def load_user(user_id):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = escape(request.form['username']) 
+        password = escape(request.form['password'])
         user = User.query.filter_by(username=username).first()
 
         if user and check_password_hash(user.password, password):
