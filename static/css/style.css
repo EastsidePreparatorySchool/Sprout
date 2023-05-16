@@ -26,6 +26,7 @@ p {
     display: flex;
     align-items: center;
     box-shadow: 0px 15px 40px #7E6D5766;
+    margin: auto;
 }
 
 nav ul {
