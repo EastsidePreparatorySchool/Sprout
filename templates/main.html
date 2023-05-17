@@ -29,19 +29,26 @@
 
 <body>
 
+
     <nav>
         <ul>
             <li><a class="active" href="/">Home</a></li>
-            <li><a href="/about/">About</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <form class="slider" method="POST" target="_blank" action="" id="setPageForm" name="setPageForm">
-        <input type="range" id="set_page" min="1" max="10" value="5" step="1" name="set_page_value" oninput="output.innerHTML=this.value" onchange="setPage();">
-        <p class="value1" id="output"> 5</p>
-    </form>
+    <div style="display: flex; justify-content: center;">
+        <form class="slider" method="POST" target="_blank" action="" id="setPageForm" name="setPageForm">
+            <input type="range" id="set_page" min="1" max="10" value="5" step="1" name="set_page_value" oninput="output.innerHTML=this.value" onchange="setPage();">
+            <p class="value1" id="output"> 5</p>
+        </form>
+    </div>
 
-    <h4>How Stressed Are You?</h4>
+    <h1 style="text-align: center;">How Stressed Are You?</h1>
+
+    <br>
+    <br>
+    <br>
 
     <script>
         function setPage() {
@@ -56,12 +63,10 @@
     </script>
 
     <br>
-    <br>
-    <br>
 
     <a onclick="submitForm()">
 
-        <div class="clickMe">
+        <div class="clickMe" style="text-align: center;">
             Enter
         </div>
 
