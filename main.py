@@ -7,23 +7,34 @@ from flask import redirect, url_for, session, flash
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
 
+
+
+
+
+
+db = SQLAlchemy()
 app = Flask(__name__)
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
+
 app.config['SECRET_KEY'] = 'Hello'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///login_app.db'
 
-db = SQLAlchemy(app)
-login_manager = LoginManager(app)
-login_manager.login_view = 'login'
-
+users = {}
 # class 
 class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(120), nullable=False)
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String(50), unique = True)
 
+    def __init__(self, username):
+        self.username = username
 @login_manager.user_loader
 def load_user(user_id):
+    if user_id not in users:
+        return
     return User.query.get(int(user_id))
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -33,28 +44,40 @@ def login():
         password = request.form['password']
         user = User.query.filter_by(username=username).first()
 
-        if user and check_password_hash(user.password, password):
-            login_user(user)
-            return redirect(url_for('dashboard'))
-        else:
-            flash('Invalid username or password', 'danger')
-
+        if username not in users or not check_password_hash(users[username], password):
+             flash('Please check your login details and try again.')
+             return redirect(url_for('login'))
+        user = User(username)
+        login_user(user)
+        return redirect(url_for('protected'))
+    
     return render_template('login.html')
 
-# The logot thing
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        if username in users:
+            flash('Username already exists')
+            return redirect(url_for('signup'))
+
+        users[username] = generate_password_hash(password, method='sha256')
+        return redirect(url_for('login'))
+
+    return render_template('signup.html')
+
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('dashboard'))
 
-@app.route('/dashboard')
+@app.route('/protected')
 @login_required
-def dashboard():
-    return render_template('dashboard.html', user=current_user)
-
-
-
+def protected():
+    return 'Logged in as: ' + str(current_user.id)
 
 if __name__ == '__main__':
     db.create_all()
