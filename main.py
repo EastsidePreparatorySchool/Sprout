@@ -27,7 +27,8 @@ users = {}
 # class 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    username = db.Column(db.String(50), unique = True)
+    username = db.Column(db.String(25), unique = True)
+    password = db.Column(db.String(25))
 
     def __init__(self, username):
         self.username = username
@@ -62,9 +63,11 @@ def signup():
         if username in users:
             flash('Username already exists')
             return redirect(url_for('signup'))
-
-        users[username] = generate_password_hash(password, method='sha256')
-        return redirect(url_for('login'))
+        else:
+            new_user = User(username=username, password=password)
+            db.session.add(new_user)
+            db.session.commit()
+            return redirect(url_for("login"))
 
     return render_template('signup.html')
 
@@ -72,7 +75,7 @@ def signup():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('dashboard'))
+    return redirect(url_for('login'))
 
 @app.route('/protected')
 @login_required
@@ -85,7 +88,7 @@ if __name__ == '__main__':
 
 @app.route("/")
 def main():
-    return render_template('main.html')
+    return redirect(url_for("login"))
 
 @app.route("/about/")
 def about():
