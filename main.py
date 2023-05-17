@@ -83,10 +83,10 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-@app.route('/protected')
-@login_required
-def protected():
-    return 'Logged in as: ' + str(current_user.id)
+# @app.route('/protected')
+# @login_required
+# def protected():
+#     return 'Logged in as: ' + str(current_user.id)
 
 
 
