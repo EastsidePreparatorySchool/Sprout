@@ -16,16 +16,17 @@ p {
 .slider {
     color: rgb(0, 0, 0);
     position: absolute;
-    top: 19%;
-    width: 150px;
+    top: 143px;
+    width: 200px;
     height: 20px;
     padding: 20px;
-    padding-left: 40px;
+    padding-left: 20px;
     background: rgba(0, 181, 45, 0.701);
     border-radius: 20px;
     display: flex;
     align-items: center;
     box-shadow: 0px 15px 40px #7E6D5766;
+    margin: auto;
 }
 
 nav ul {
@@ -34,7 +35,7 @@ nav ul {
     padding: 0;
     overflow: hidden;
     background-color: azure;
-    width: 270px;
+    width: 160px;
 }
 
 nav li {
