@@ -59,7 +59,7 @@ def login():
 
         user = User(username, password)
         login_user(user)
-        return redirect(url_for('about'))
+        return redirect(url_for('home'))
     
     return render_template('login.html')
 
@@ -109,6 +109,10 @@ def main():
 @app.route("/about/")
 def about():
     return render_template('about.html')
+
+@app.route("/home/")
+def home():
+    return render_template('home.html')
 
 @app.route("/test/")
 def test():
