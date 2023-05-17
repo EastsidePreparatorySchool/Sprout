@@ -22,7 +22,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 app.config['SECRET_KEY'] = 'Hello'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///login_app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///login.db'
 db = SQLAlchemy(app)
 
 # class 
@@ -35,6 +35,9 @@ class User(UserMixin, db.Model):
     def __init__(self, username, password):
         self.username = username
         self.password = password
+        
+with app.app_context():    
+    db.create_all()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -79,7 +82,7 @@ def protected():
     return 'Logged in as: ' + str(current_user.id)
 
 if __name__ == '__main__':
-    db.create_all()
+
     app.run(debug=True)
 
 @app.route("/")
