@@ -35,13 +35,20 @@ class User(UserMixin, db.Model):
     def __init__(self, username, password):
         self.username = username
         self.password = password
-        
+
 with app.app_context():    
     db.create_all()
-
+    
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    if user_id is None:
+        return None  # Return None if user_id is None
+
+    try:
+        return User.query.get(int(user_id))
+    except ValueError:
+        return None  # Return None if user_id is not a valid integer
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -52,7 +59,7 @@ def login():
 
         user = User(username, password)
         login_user(user)
-        return redirect(url_for('protected'))
+        return redirect(url_for('about'))
     
     return render_template('login.html')
 
@@ -80,6 +87,16 @@ def logout():
 @login_required
 def protected():
     return 'Logged in as: ' + str(current_user.id)
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
 
