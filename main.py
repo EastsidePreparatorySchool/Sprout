@@ -14,7 +14,7 @@ import os
 
 
 
-db = SQLAlchemy()
+
 app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -22,20 +22,21 @@ login_manager.login_view = 'login'
 
 app.config['SECRET_KEY'] = 'Hello'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///login_app.db'
+db = SQLAlchemy(app)
 
-users = {}
 # class 
 class User(UserMixin, db.Model):
+    __tablename__ = "user"
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(25), unique = True)
     password = db.Column(db.String(25))
 
-    def __init__(self, username):
+    def __init__(self, username, password):
         self.username = username
+        self.password = password
+
 @login_manager.user_loader
 def load_user(user_id):
-    if user_id not in users:
-        return
     return User.query.get(int(user_id))
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -45,10 +46,7 @@ def login():
         password = request.form['password']
         user = User.query.filter_by(username=username).first()
 
-        if username not in users or not check_password_hash(users[username], password):
-             flash('Please check your login details and try again.')
-             return redirect(url_for('login'))
-        user = User(username)
+        user = User(username, password)
         login_user(user)
         return redirect(url_for('protected'))
     
@@ -60,14 +58,11 @@ def signup():
         username = request.form['username']
         password = request.form['password']
 
-        if username in users:
-            flash('Username already exists')
-            return redirect(url_for('signup'))
-        else:
-            new_user = User(username=username, password=password)
-            db.session.add(new_user)
-            db.session.commit()
-            return redirect(url_for("login"))
+       
+        new_user = User(username=username, password=password)
+        db.session.add(new_user)
+        db.session.commit()
+        return redirect(url_for("login"))
 
     return render_template('signup.html')
 
