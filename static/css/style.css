@@ -3,12 +3,14 @@
 }
 
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(202, 237, 198);
     font-family: 'Century Gothic', monospace;
 }
 
 h1,
-p {
+h2,
+h3,
+h4 p {
     color: rgb(0, 0, 0);
     font-family: 'Century Gothic', monospace;
 }
@@ -77,10 +79,7 @@ nav li a:hover {
 }
 
 
-
 /*Login/Signup*/
-
-
 
 .submitbutton {
     position: absolute;
@@ -90,70 +89,75 @@ nav li a:hover {
     left: 10%;
     padding: 0 16px;
     font-family: inter;
-    font-size: 20px; 
-    line-height: 26px; 
-    color: #0A4D20FF; 
-    background: #1DD75BFF; 
+    font-size: 20px;
+    line-height: 26px;
+    color: #0A4D20FF;
+    background: #1DD75BFF;
     border: none;
-    border-radius: 8px; 
+    border-radius: 8px;
 }
 
+
 /* Hover */
+
 .submitbutton:hover {
-color: #0A4D20FF;
-background: #1AC052FF;
+    color: #0A4D20FF;
+    background: #1AC052FF;
 }
+
+
 /* Pressed */
+
 .submitbutton:hover:active {
-color: #0A4D20FF;
-background: #17A948FF;
+    color: #0A4D20FF;
+    background: #17A948FF;
 }
 
 .container {
-position: absolute;
-width: 100%;
-height: 100%;
-background-color: rgba(1, 1, 107, 0);
-top: 0;
-left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(1, 1, 107, 0);
+    top: 0;
+    left: 0;
 }
 
 form {
-position: absolute;
-top: 250px;
-width: 100%;
-margin: 15px 10px;
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    margin: 15px 10px;
 }
 
 header {
-position: absolute;
-top: 0px;
-width: 100%;
-height: 250;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 250;
 }
 
 .logo {
-height: 200px;
-width: 100%;
+    height: 200px;
+    width: 100%;
 }
 
 .logoimg {
-object-fit: contain;
-width: 100%;
-height: 100%;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
 }
 
 .signactive {
-border-bottom: solid hsl(117, 68%, 42%);
-font-size: large;
+    border-bottom: solid hsl(117, 68%, 42%);
+    font-size: large;
 }
-
 
 .tabs {
-height: 40px;
-margin: 0 7px;
+    height: 40px;
+    margin: 0 7px;
 }
+
 .tabs a {
-color: rgb(0, 0, 0);
-text-decoration: none;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
 }
