@@ -30,22 +30,25 @@
     left: 10px;
 }
 
+
+
     </style>
 </head>
 <body>
-  <header>
+  <div class="centered">
+  <div class="header">
     <div class="container">
         <div class="row">
           <div class="logo">
-            <img class="logoimg"src="images/Logo.jpg" alt="Logo">
+            <img class="logoimg"src="templates/images/Logo.jpg" alt="Logo">
           </div>
         </div>
         <div class="row shadow-sm tabs">
-          <div class="col-6 text-center p-2 signactive"><a href="logininui.html">Login</a></div>
-          <div class="col-6 text-center p-2"><a href="signupui.html">Signup</a></div>
+          <div class="col-6 text-center p-2 signactive"><a href="{{url_for('logininui')}}">Login</a></div>
+          <div class="col-6 text-center p-2"><a href="{{url_for('signupui')}}">Signup</a></div>
         </div>
     </div>
-</header>
+  </div>
     <form>
         <div class="form-group">
           <label class="label" for="email" id="emaillab">Email address</label>
@@ -58,7 +61,5 @@
 
         <button type="submit" class="submitbutton">Login</button>
       </form>
-
-
 </body>
 </html>
