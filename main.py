@@ -98,6 +98,15 @@ def logout():
 #     return 'Logged in as: ' + str(current_user.id)
 
 
+# Navigation between Login and Signup
+
+@app.route('/signupui')
+def signupui():
+    return render_template('signupui.html')
+
+@app.route('/logininui')
+def logininui():
+    return render_template('logininui.html')
 
 
 
