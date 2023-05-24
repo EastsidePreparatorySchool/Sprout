@@ -116,17 +116,21 @@ def logininui():
 
 
 
+
 if __name__ == '__main__':
 
     app.run(debug=True)
 
 @app.route("/")
-def main():
-    return redirect(url_for("login"))
+def index():
+    return render_template('index.html')
+
 
 @app.route("/about/")
 def about():
     return render_template('about.html')
+
+
 
 @app.route("/home/")
 def home():
