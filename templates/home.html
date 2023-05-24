@@ -30,6 +30,35 @@
         display: block;
         text-align: center;
     }
+    
+    .dropdown {
+        display: inline-block;
+        position: relative;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        width: 100%;
+        overflow: auto;
+        box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    .dropdown-content a {
+        display: block;
+        color: #000000;
+        padding: 5px;
+        text-decoration: none;
+    }
+    
+    .dropdown-content a:hover {
+        color: #FFFFFF;
+        background-color: #00A4BD;
+    }
 </style>
 
 <body>
@@ -37,11 +66,17 @@
 
     <nav>
         <ul>
-            <li><a class="active" href="/">Logout</a></li>
+            <!--  <li><a class="active" href="/">Logout</a></li>-->
             <li><a href="about.html">About</a></li>
             <li><a>Home</a></li>
         </ul>
     </nav>
+
+
+
+
+
+    <br>
 
     <div style="display: flex; justify-content: center;">
         <form class="slider" method="POST" target="_blank" action="" id="setPageForm" name="setPageForm">
@@ -50,13 +85,11 @@
         </form>
     </div>
 
-    <h1 style="text-align: center;">How Stressed Are You?</h1>
+    <h1 style="text-align: center;;">How Stressed Are You?</h1>
 
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
+
 
 
     <script>
@@ -68,16 +101,32 @@
 
         function submitForm() {
             document.forms.setPageForm.submit();
+
+            var list = document.getElementById("membership");
+            var value = list.value;
+            document.write(value);
+
+            var list = document.getElementById("pref");
+            var value = list.value;
+            document.write(value);
+        }
+
+        function grabListItem() {
+
+
         }
     </script>
 
+
+    <br>
+    <br>
 
 
     <label for="membership " class="star ">How Do You Cope Best?</label>
     <br>
     <div style="display: flex; justify-content: center; ">
         <div class="centered-element ">
-            <select name="membership " id="membership ">
+            <select name="pref" id="pref">
             <option value="free ">Reflection</option>
             <option value="bronze ">Excercise</option>
             <option value="silver ">Self-Care</option>
@@ -86,17 +135,30 @@
         </div>
     </div>
 
+
+    <!--
+    <div class="dropdown">
+        <div style="display: flex; justify-content: center; "></div>
+        <button>How Do You Cope Best?</button>
+        <div class="dropdown-content">
+            <a href="https://blog.hubspot.com/">Blog</a>
+            <a href="https://academy.hubspot.com/">Academy</a>
+            <a href="https://www.youtube.com/user/hubspot">YouTube</a>
+        </div>
+    </div>
+     -->
+
     <br>
     <br>
 
-
-    <a onclick="submitForm() ">
+    <a onclick="submitForm(); ">
 
         <div class="clickMe " style="text-align: center; ">
             Enter
         </div>
-
     </a>
+
+
 
 
 </body>
