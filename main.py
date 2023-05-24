@@ -140,9 +140,13 @@ def test():
 def Slider0():
     return render_template('slider/slider0.html')
 
+
+    
 @app.route("/slider/1", methods=['GET', 'POST'])
 def Slider1():
     return render_template('slider/slider1.html')
+
+
 
 @app.route("/slider/2", methods=['GET', 'POST'])
 def Slider_2():
