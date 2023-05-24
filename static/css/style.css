@@ -3,7 +3,8 @@
 }
 
 body {
-    background-color: rgb(202, 237, 198);
+    background-color: rgb(255, 255, 255);
+   /* background-color: rgb(202, 237, 198);*/
     font-family: 'Century Gothic', monospace;
 }
 
@@ -149,7 +150,6 @@ height: 250px;
 
 .signactive {
     border-bottom: solid hsl(117, 68%, 42%);
-    font-size: large;
 }
 
 .tabs {
