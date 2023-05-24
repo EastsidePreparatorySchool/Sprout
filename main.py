@@ -148,6 +148,17 @@ def Slider0():
 def Slider1():
     return render_template('slider/slider1.html')
 
+
+
+
+@app.route("/slider/excercise1", methods=['GET', 'POST'])
+def Excercise1():
+    return render_template('slider/excercise1.html')
+
+
+
+
+
 @app.route("/slider/2", methods=['GET', 'POST'])
 def Slider_2():
     return render_template('slider/slider2.html')

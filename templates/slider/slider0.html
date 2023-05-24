@@ -80,12 +80,24 @@
 
 <body>
 
+    <script>
+        function submitForm() {
+            document.forms.setPageForm.submit();
+
+            var list = document.getElementById("membership");
+            var value = list.value;
+            document.write(value);
+        }
+    </script>
+
 
     <ul>
         <li><a class="active" href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <!-- <li><a href="purpose">Purpose</a></li> -->
     </ul>
+
+
 
     <h1>Here's Our Recommendations!</h1>
 

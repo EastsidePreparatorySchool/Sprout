@@ -1,9 +1,7 @@
-<!-- home.html -->
 <!DOCTYPE html>
 <html>
 
 <head>
-
     <style>
         body {
             background: linear-gradient(to right, rgb(155, 239, 160), rgba(0, 181, 45, 0.701));
@@ -85,34 +83,19 @@
     <ul>
         <li><a class="active" href="/">Home</a></li>
         <li><a href="/about">About</a></li>
+        <!-- <li><a href="purpose">Purpose</a></li> -->
     </ul>
 
-    <h1>You Entered 1, Indicating That You Are NOT Stressed.</h1>
-    <br>
-    <h2>What is the Best Way You Cope?</h2>
-    <label for="options">Select an option:</label>
-    <select id="options">
-    <option value="reflection">Reflection</option>
-    <option value="exercise">Exercise</option>
-    <option value="self-care">Self-Care</option>
-    <option value="finding-help">Finding Help</option>
-  </select>
-    <button onclick="redirect()">Enter</button>
+    <h1>You Selected Self Care! - Stress Level 1</h1>
+    <h1>Here's Our Recommendations!</h1>
 
-    <script>
-        function redirect() {
-            var selectedOption = document.getElementById("options").value;
-            if (selectedOption === "reflection") {
-                window.location.href = "reflection1.html";
-            } else if (selectedOption === "exercise") {
-                window.location.href = "excercise1.html";
-            } else if (selectedOption === "self-care") {
-                window.location.href = "self-care1.html";
-            } else if (selectedOption === "finding-help") {
-                window.location.href = "finding-help1.html";
-            }
-        }
-    </script>
+    <br>
+    <br>
+
+
+    <h2>
+        Not Stressed? Keep it up!
+    </h2>
 </body>
 
 </html>
