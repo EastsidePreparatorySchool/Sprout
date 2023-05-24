@@ -100,7 +100,13 @@ def logout():
 
 # Navigation between Login and Signup
 
+@app.route('/signupui')
+def signupui():
+    return render_template('signupui.html')
 
+@app.route('/logininui')
+def logininui():
+    return render_template('logininui.html')
 
 
 
@@ -116,8 +122,9 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 @app.route("/")
-def main():
-    return redirect(url_for("logininui"))
+def index():
+    return render_template('index.html')
+
 
 @app.route("/about/")
 def about():
@@ -177,13 +184,7 @@ def Slider_9():
 def Slider_10():
     return render_template('slider/slider10.html')
 
-@app.route('/signupui')
-def signupui():
-    return render_template('signupui.html')
 
-@app.route('/logininui')
-def logininui():
-    return render_template('logininui.html')
 
 
 
